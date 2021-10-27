@@ -1,0 +1,51 @@
+Redux -- core concepts
+Stores- hold the state of the application                                                       shop
+Action that describes the change of state in the application                                 buy things (what u need?)
+Reducer- carries out the state tranisition in the application depending on the action      shopkeeper  (ties store and action)
+
+Redux-- Three principels
+
+->The state of whole application is stored in an object tree within a single store ( no of item in store) (Things in shelf ) {
+    no of things : 10       
+}
+
+->if u want to update application let redux know about the action not allowed to directly update state object (action-Buy things) {
+    type:Buy_thing
+}
+->write pure reducers to specify how the state tree is transformed by the action 
+
+reducer-(previousState,action) = newState    Reducer is shopkeeper print receipt and reduce count by one and deliver things
+------------------------------------
+const reducer=(state,action) =>{
+    switch(action.type){
+        case Buy_thing:
+            no.ofCakes: state.no.ofCakes-1
+    }
+}
+}   
+
+-> Action
+--------------------
+only way ur application can interact with the store
+carry some information from your app to the redux store
+it is plain javascript object
+they must have 'type' property that indicates type of action being performed
+the 'type' property is defined as string constants
+
+
+Reducers
+--------------------------------------------------------------------------
+->app state changes in response to actions sent to the store
+->Function that accepts state and action as an argument and return next state of application
+
+(previousState,action) => newState
+
+Redux store
+-----------------------------------------------------------------------------
+->one store for entire application
+-> Hold application state
+-> allow access to state via getState()
+-> allows state to be updated via dispatch(action)
+-> Register listeners via subscribe(listeners)
+->Handles unregistering of listeners via function returned by subscribe(listener)
+
